@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+        <title>Dino AR</title>
+    </head>
+
+    <body style="margin: 0; overflow: hidden;">
+        <a-scene
+            vr-mode-ui="enabled: false;"
+            loading-screen="enabled: false;"
+            renderer="logarithmicDepthBuffer: true;"
+            arjs="trackingMethod: best; sourceType: webcam; sourceWidth: 1920; sourceHeight: 1080; displayWidth: 1920; displayHeight: 1080; debugUIEnabled: false;"
+            id="scene"
+            embedded
+            gesture-detector
+        >
+            <a-assets>
+                <a-asset-item
+                    id="ptera"
+                    src="models/ptera/scene.gltf"
+                ></a-asset-item>
+                <a-asset-item
+                    id="rex1"
+                    src="models/rex1/scene.gltf"
+                ></a-asset-item>
+                <a-asset-item
+                    id="rex2"
+                    src="models/rex2/scene.gltf"
+                ></a-asset-item>
+                <a-asset-item
+                    id="tri"
+                    src="models/tri/scene.gltf"
+                ></a-asset-item>
+                <a-asset-item
+                    id="tyra"
+                    src="models/tyra/scene.gltf"
+                ></a-asset-item>
+            </a-assets>
+
+            <a-marker
+                id="marker1"
+                type="pattern"
+                preset="custom"
+                url="markers/marker1.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+            >
+                <a-entity
+                    id="model-ptera"
+                    scale="0.5 0.5 0.5"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#ptera"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+            <a-marker
+                id="marker2"
+                type="pattern"
+                preset="custom"
+                url="markers/marker2.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+            >
+                <a-entity
+                    id="model-rex1"
+                    scale="0.5 0.5 0.5"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#rex1"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+            <a-marker
+                id="marker3"
+                type="pattern"
+                preset="custom"
+                url="markers/marker3.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+            >
+                <a-entity
+                    id="model-rex2"
+                    scale="0.5 0.5 0.5"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#rex2"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+            <a-marker
+                id="marker4"
+                type="pattern"
+                preset="custom"
+                url="markers/marker4.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+            >
+                <a-entity
+                    id="model-tri"
+                    scale="0.5 0.5 0.5"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#tri"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+            <a-marker
+                id="marker5"
+                type="pattern"
+                preset="custom"
+                url="markers/marker5.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+            >
+                <a-entity
+                    id="model-tyra"
+                    scale="0.5 0.5 0.5"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#tyra"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+
+            <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+</html>
